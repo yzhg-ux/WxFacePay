@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tencent.wxpay.imagefacesign.IFSExampleActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/pay_page"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <Button
+                    android:id="@+id/init"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="初始化"
+                    android:layout_weight="1"
+                    android:textColor="#fff"
+                    android:textSize="30dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/register_face_confirm_btn"
+                    />
+
+                <Button
+                    android:id="@+id/raw"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="获取 RawData "
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:layout_margin="10dp"
+                    android:textColor="#fff"
+                    android:background="@drawable/register_face_confirm_btn"/>
+
+                <Button
+                    android:id="@+id/release"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="释放资源"
+                    android:layout_weight="1"
+                    android:textColor="#fff"
+                    android:layout_margin="10dp"
+                    android:textSize="30dp"
+                    android:background="@drawable/register_face_confirm_btn"
+                    />
+
+                </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <EditText
+                    android:id="@+id/val_mem_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:hint="会员手机号"/>
+
+                <Button
+                    android:id="@+id/code"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="支付"
+                    android:textSize="30dp"
+                    android:textColor="#fff"
+                    android:background="@drawable/register_face_confirm_btn"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="5dp"
+                    />
+
+                <Button
+                    android:id="@+id/reportinfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="上报业务"
+                    android:textSize="30dp"
+                    android:textColor="#fff"
+                    android:background="@drawable/register_face_confirm_btn"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="5dp"
+                    />
+
+                <Button
+                    android:id="@+id/reportorder"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="上报订单"
+                    android:textSize="30dp"
+                    android:textColor="#fff"
+                    android:background="@drawable/register_face_confirm_btn"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="5dp"
+                    />
+
+                <Button
+                    android:id="@+id/updatepay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="支付结果"
+                    android:textSize="30dp"
+                    android:textColor="#fff"
+                    android:background="@drawable/register_face_confirm_btn"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="5dp"
+                    />
+
+                <Button
+                    android:id="@+id/showbanner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="可展示运营位"
+                    android:textSize="30dp"
+                    android:textColor="#fff"
+                    android:background="@drawable/register_face_confirm_btn"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="5dp"
+                    />
+                <Button
+                    android:id="@+id/removebanner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="不可展示运营位"
+                    android:textSize="30dp"
+                    android:textColor="#fff"
+                    android:background="@drawable/register_face_confirm_btn"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="5dp"
+                    />
+                <Button
+                    android:id="@+id/start_faceId_once_recognize"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="人脸识别Once模式"
+                    android:textSize="30dp"
+                    android:textColor="#fff"
+                    android:background="@drawable/register_face_confirm_btn"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="5dp"/>
+
+                <Button
+                    android:id="@+id/facepay_delay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="非即时支付"
+                    android:textSize="30dp"
+                    android:textColor="#fff"
+                    android:background="@drawable/register_face_confirm_btn"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="5dp"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/start_face_recognize"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="人脸认别"
+                    android:layout_weight="1"
+                    android:textSize="30dp"
+                    android:layout_margin="10dp"
+                    android:textColor="#fff"
+                    android:background="@drawable/register_face_confirm_btn"/>
+
+                <Button
+                    android:id="@+id/stop_face_recognize"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="停止识别"
+                    android:layout_weight="1"
+                    android:textSize="30dp"
+                    android:layout_margin="10dp"
+                    android:textColor="#fff"
+                    android:background="@drawable/register_face_confirm_btn"/>
+                <Button
+                    android:id="@+id/exit_example"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="退出"
+                    android:layout_weight="1"
+                    android:textSize="30dp"
+                    android:layout_margin="10dp"
+                    android:textColor="#fff"
+                    android:background="@drawable/register_face_confirm_btn"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/face_callback"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/pay_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="80dp"
+        android:layout_centerInParent="true"
+        android:text="未知状态"
+        android:visibility="gone"
+        android:gravity="center"
+        />
+    
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="预览框的margin-top:"
+                />
+
+            <EditText
+                android:id="@+id/val_margin_top"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="180"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="连续x张人脸正常就优选:"
+                />
+
+            <EditText
+                android:id="@+id/val_face_normal_count"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="5"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="人脸是否在中心阈值:"
+                />
+
+            <EditText
+                android:id="@+id/val_face_center_num"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="0.3"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="三个人脸旋转角(PU/PD Y R):"
+                />
+
+            <EditText
+                android:id="@+id/val_thresshold_pu"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="5"/>
+
+            <EditText
+                android:id="@+id/val_thresshold_pd"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="18"/>
+
+            <EditText
+                android:id="@+id/val_thresshold_y"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="10"/>
+
+            <EditText
+                android:id="@+id/val_thresshold_r"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="10"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="人脸最大最小阈值(大小):"
+                />
+
+            <EditText
+                android:id="@+id/face_size_big"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="300"/>
+
+            <EditText
+                android:id="@+id/face_size_small"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:text="96"/>
+
+        </LinearLayout>
+        
+    </LinearLayout>
+
+
+</LinearLayout>

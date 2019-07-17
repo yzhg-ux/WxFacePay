@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context="com.tencent.wxpay.imagefacesign.IFSFactoryTestActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/factory_test_obo_tips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="测试说明:\n本测试主要验证刷脸支付流程，测试人员需配合完成人脸识别（流程仅为测试，不会发生真实交易）"
+            android:textColor="#000"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/factory_test_obo_start"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/register_face_confirm_btn"
+            android:text="开始[1:1]测试"
+            android:textColor="#fff"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/factory_test_obo_result"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:text="测试结果:"
+            android:textColor="#000"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+    <View
+        android:background="#000"
+        android:layout_width="2dp"
+        android:layout_height="match_parent" ></View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/factory_test_obn_tips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="测试说明:\n本测试主要验证登录会员流程，开始测试后屏幕顶部会出现浮窗，测试人员需配合完成人脸识别（流程仅为测试），在进行其他测试前，需要手动停止[1:N]测试"
+            android:textColor="#000"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/factory_test_obn_start"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/register_face_confirm_btn"
+            android:text="开始[1:N]测试"
+            android:textColor="#fff"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/factory_test_obn_stop"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/register_face_confirm_btn"
+            android:text="停止[1:N]测试"
+            android:textColor="#fff"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/factory_test_obn_result"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:text="测试结果:"
+            android:textColor="#000"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <View
+        android:background="#000"
+        android:layout_width="2dp"
+        android:layout_height="match_parent" ></View>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/factory_test_exit"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp"
+            android:background="@drawable/register_face_confirm_btn"
+            android:text="退出"
+            android:textColor="#fff"
+            android:textSize="30sp" />
+    </RelativeLayout>
+</LinearLayout>

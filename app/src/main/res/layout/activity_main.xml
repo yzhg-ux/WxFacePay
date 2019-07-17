@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.main.MainActivity">
+
+
+    <EditText
+        android:id="@+id/EdPhone"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center_vertical"
+        android:hint="输入交易手机号"
+        android:paddingStart="18dp"
+        android:text="18538291005"
+        android:textColor="@color/colorPrimary"
+        tools:ignore="RtlSymmetry" />
+
+
+    <EditText
+        android:id="@+id/ETInputMoney"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center_vertical"
+        android:hint="输入金额"
+        android:paddingStart="18dp"
+        android:text="1"
+        android:textColor="@color/colorAccent"
+        tools:ignore="RtlSymmetry" />
+
+
+    <Button
+        android:id="@+id/butInitView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="初始化设备" />
+
+    <Button
+        android:id="@+id/ButStartPay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:background="@color/design_default_color_primary"
+        android:text="刷脸支付"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/ButPayResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="支付结果展示" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/ButCopyResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cardview_dark_background"
+        android:text="复制结果"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>
