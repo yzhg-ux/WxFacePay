@@ -14,4 +14,16 @@ public class Constant {
     public static final Boolean DEBUG = true;
     /*网络请求时长*/
     public static final int DEFAULT_TIMEOUT = 60000;
+
+
+    //SP储存
+
+    //储存autoInfo
+    public static final String SP_PAY_AUTOINFO = "pay_autoinfo";
+    public static final String SP_PAY_EXPIRES_IN = "pay_expires_in";
+    public static final String SP_PAY_RAWDATA = "pay_rawdata";
+
+
+
+
 }

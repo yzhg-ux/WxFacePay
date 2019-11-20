@@ -30,6 +30,9 @@ public interface MainContract {
         /*人脸识别成功*/
         void getWxPayFaceCodeSuccess(String faceText, String faceCode, String openId, String sub_open_id);
 
+        /*用户取消支付*/
+        void userCancelFacePay(int cancelType);
+
         /*初始化微信人脸支付失败*/
         void initWxPayFailed(String failedText, NetStateEnum netStateEnum);
 

@@ -1,9 +1,14 @@
 package com.jds.reception.application;
 
 import android.app.Application;
+import android.os.RemoteException;
 
+import com.jds.reception.R;
+import com.jds.reception.base.mvp.base.NetStateEnum;
 import com.jds.reception.constant.Constant;
+import com.jds.reception.constant.WxConstant;
 import com.jds.reception.http.tools.SSLSocketClient;
+import com.jds.reception.utils.LogUtils;
 import com.jds.reception.utils.Tools;
 import com.jds.reception.utils.toast.ToastUtils;
 import com.lzy.okgo.OkGo;
@@ -12,7 +17,12 @@ import com.lzy.okgo.cache.CacheMode;
 import com.lzy.okgo.cookie.CookieJarImpl;
 import com.lzy.okgo.cookie.store.DBCookieStore;
 import com.lzy.okgo.model.HttpHeaders;
+import com.tencent.wxpayface.IWxPayfaceCallback;
+import com.tencent.wxpayface.WxPayFace;
+import com.tencent.wxpayface.WxfacePayCommonCode;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -37,8 +47,8 @@ public class JDSApplication extends Application {
         ToastUtils.init(this);
         Tools.init(getApplicationContext());
         initOkGo();
-    }
 
+    }
 
     /*
      * 作 者: yzhg

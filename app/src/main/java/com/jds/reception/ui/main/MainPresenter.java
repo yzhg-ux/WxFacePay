@@ -6,9 +6,11 @@ import android.text.TextUtils;
 import com.jds.reception.R;
 import com.jds.reception.base.mvp.base.BasePresenterImpl;
 import com.jds.reception.base.mvp.base.NetStateEnum;
+import com.jds.reception.constant.Constant;
 import com.jds.reception.constant.WxConstant;
 import com.jds.reception.http.api.Api;
 import com.jds.reception.utils.LogUtils;
+import com.jds.reception.utils.SPUtils;
 import com.jds.reception.utils.Tools;
 import com.jds.reception.utils.ThreadUtils;
 import com.jds.reception.utils.toast.ToastUtils;
@@ -76,7 +78,7 @@ public class MainPresenter extends BasePresenterImpl<MainContract.MainView> impl
      * 作 者: yzhg
      * 历 史: (版本) 1.0
      * 描 述:
-     *      获取微信人脸支付RawData
+     * 获取微信人脸支付RawData
      */
     @Override
     public void getWxPayFaceRawData() {
@@ -102,15 +104,17 @@ public class MainPresenter extends BasePresenterImpl<MainContract.MainView> impl
      * 作 者: yzhg
      * 历 史: (版本) 1.0
      * 描 述:
-     *      获取微信人脸支付凭证
+     * 获取微信人脸支付凭证
      */
     @Override
     public void getWxFacePayVoucher(String rawdata) {
+        //储存RawData的时间。
+        SPUtils.putLong(Tools.getContext(), Constant.SP_PAY_RAWDATA, System.currentTimeMillis());
         Map<String, String> map = new HashMap<>();
         map.put("appid", WxConstant.APP_ID);
-        map.put("mch_id",  WxConstant.MCH_ID);
-        map.put("sub_mch_id", "");
-        // map.put("sub_appid", "");
+        map.put("mch_id", WxConstant.MCH_ID);
+        map.put("sub_mch_id", WxConstant.SUB_MCH_ID);
+        map.put("sub_appid", WxConstant.SUB_APP_ID);
         map.put("now", "" + (System.currentTimeMillis() / 1000));
         map.put("version", "1");
         map.put("sign_type", "MD5");
@@ -125,7 +129,7 @@ public class MainPresenter extends BasePresenterImpl<MainContract.MainView> impl
         List<Map.Entry<String, String>> infoIds = new ArrayList<>(map.entrySet());
         Collections.sort(infoIds, (o1, o2) -> (o1.getKey()).compareTo(o2.getKey()));
         //使用&符号进行频率
-        String sbR = Tools.getStringBuffer(infoIds) + "&key="+WxConstant.MCH_KEY_ID;
+        String sbR = Tools.getStringBuffer(infoIds) + "&key=" + WxConstant.MCH_KEY_ID;
         //进行MD5加密之后  转大写
         String sign = Tools.encode(sbR).toUpperCase();
         map.put("sign", sign);
@@ -145,7 +149,14 @@ public class MainPresenter extends BasePresenterImpl<MainContract.MainView> impl
                             try {
                                 String return_code = Tools.parseGetAuthInfoXML(payVoucher, WxConstant.RETURN_CODE);
                                 if ("SUCCESS".equals(return_code)) {
+                                    //获取微信凭证成功
                                     String authinfo = Tools.parseGetAuthInfoXML(payVoucher, "authinfo");
+                                    /*获取到authInfo有效时间。在这个有效时间只能就可以不用重复获取autoInfo*/
+                                    String expires_in = Tools.parseGetAuthInfoXML(payVoucher, "expires_in");
+                                    //这里使用sp储存这个时间和autoInfo(这里储存在sp中方便，只做演示，如果考虑安全性可以放到加密数据库中)
+                                    SPUtils.putString(Tools.getContext(), Constant.SP_PAY_AUTOINFO, authinfo);
+                                    //储存过期时间.用来判断是否需要重新获取autoInfo
+                                    SPUtils.putLong(Tools.getContext(), Constant.SP_PAY_EXPIRES_IN, (expires_in == null) ? 0L : Long.valueOf(expires_in));
                                     LogUtils.d("获取到的微信支付凭证infoXML" + authinfo);
                                     mView.wxFacePayVoucherSuccess(authinfo);
                                 } else {
@@ -191,12 +202,16 @@ public class MainPresenter extends BasePresenterImpl<MainContract.MainView> impl
                         mView.getWxPayFaceCodeSuccess(map.toString(), faceCode, openId, sub_open_id);
                     } else if (TextUtils.equals(code, WxfacePayCommonCode.VAL_RSP_PARAMS_USER_CANCEL)) {
                         ToastUtils.show("用户取消");
+                        mView.userCancelFacePay(WxConstant.USER_CANCEL_FACE_PAY);
                     } else if (TextUtils.equals(code, WxfacePayCommonCode.VAL_RSP_PARAMS_SCAN_PAYMENT)) {
                         ToastUtils.show("扫码支付");
+                        mView.userCancelFacePay(WxConstant.USER_BAR_FACE_PAY);
                     } else if (TextUtils.equals(code, "FACEPAY_NOT_AUTH")) {
                         ToastUtils.show("无即时支付无权限");
+                        mView.userCancelFacePay(WxConstant.USER_NO_PERMISSION);
                     } else {
                         ToastUtils.show("失败");
+                        mView.userCancelFacePay(WxConstant.USER_PAY_FAILED);
                     }
                 });
             }

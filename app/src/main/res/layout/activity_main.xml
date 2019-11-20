@@ -10,11 +10,13 @@
     <EditText
         android:id="@+id/EdPhone"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="100dp"
+        android:digits="0123456789"
         android:gravity="center_vertical"
-        android:hint="输入交易手机号"
+        android:hint="输入交易手机号(可以不填)"
+        android:lines="1"
         android:paddingStart="18dp"
-        android:text="18538291005"
+        android:singleLine="true"
         android:textColor="@color/colorPrimary"
         tools:ignore="RtlSymmetry" />
 
@@ -22,55 +24,37 @@
     <EditText
         android:id="@+id/ETInputMoney"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="100dp"
+        android:digits="0.123456789"
         android:gravity="center_vertical"
-        android:hint="输入金额"
+        android:hint="输入金额（单位元）"
+        android:lines="1"
         android:paddingStart="18dp"
-        android:text="1"
+        android:singleLine="true"
         android:textColor="@color/colorAccent"
         tools:ignore="RtlSymmetry" />
 
-
-    <Button
-        android:id="@+id/butInitView"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/tv_Scan_Bar_Code"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:text="初始化设备" />
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="12sp"
+        tools:text="扫描到的二维码是：25654444556887545445566" />
 
     <Button
         android:id="@+id/ButStartPay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="30dp"
         android:background="@color/design_default_color_primary"
         android:text="刷脸支付"
         android:textColor="#FFFFFF"
         android:textSize="18sp" />
 
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        android:layout_weight="1">
-
-        <TextView
-            android:id="@+id/ButPayResult"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="支付结果展示" />
-    </ScrollView>
-
-    <Button
-        android:id="@+id/ButCopyResult"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/cardview_dark_background"
-        android:text="复制结果"
-        android:textColor="#FFFFFF" />
 
 </LinearLayout>

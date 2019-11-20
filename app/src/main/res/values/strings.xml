@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Reception</string>
+    <string name="app_name">微信刷脸支付</string>
     <string name="wx_face_init_failed">微信人脸识别初始化失败</string>
     <string name="raw_data_failed">获取用户RawData失败，将无法获取SDK调用凭证</string>
 </resources>
