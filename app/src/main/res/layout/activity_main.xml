@@ -17,6 +17,7 @@
         android:lines="1"
         android:paddingStart="18dp"
         android:singleLine="true"
+        android:textSize="24sp"
         android:textColor="@color/colorPrimary"
         tools:ignore="RtlSymmetry" />
 
@@ -31,7 +32,8 @@
         android:lines="1"
         android:paddingStart="18dp"
         android:singleLine="true"
-        android:textColor="@color/colorAccent"
+        android:textColor="#333333"
+        android:textSize="24sp"
         tools:ignore="RtlSymmetry" />
 
     <TextView

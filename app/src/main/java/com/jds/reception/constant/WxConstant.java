@@ -48,4 +48,6 @@ public class WxConstant {
     public static final String SUB_MCH_ID = "SUB_MCH_ID";
     /*商户支付秘钥*/
     public static final String MCH_KEY_ID = "MCH_KEY_ID";
+
+
 }
